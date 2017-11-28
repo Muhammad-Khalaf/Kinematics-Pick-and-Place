@@ -5,7 +5,7 @@
 
 Deriving the DH parameters for Kuka KR210 was done as illustrated in the KR210 Forward Kinematics section. However, I adopted another technique to convert the Gribber frame from DH convention to URDF convention. I assumed there are two frames: `Gdh` represents the Gribber in DH convention and `Gurdf` represents the Gribber frame in URDF convention. the figure below shows the robot frames from frame `0` to frame `Gurdf` and the corresponding DH table.
 
-![KUKA frame & DH table](KUKA_DH_table.JPG)
+![KUKA frame & DH table](KUKA_DH_table.jpg)
 
 ### 2. Transformation matrices between base frame and gripper frame .
 
@@ -82,11 +82,11 @@ The figures below show how to derive the equations used for obtaining the first 
 --------------
 
 #### theta2
-![theta2](Kinematics-Pick-and-Place/writeup/theta2.jpg)
+![theta2](theta2.jpg)
 --------------
 
 #### theta3
-![theta3](Kinematics-Pick-and-Place/writeup/theta3.jpg)
+![theta3](theta3.jpg)
 -------------
 
 Deriving the equations for the last three joint angles, or the Inverse Orientation Kinematics, was so much easier to me. The Inverse Kinematics with Kuka KR210 section shows that given the first three joint angles and the end effector pose, we can get the values of the Rotation Matrix between frame 3 and frame 6.
@@ -99,7 +99,7 @@ Additionally we can also get the same Rotation Matrix between frame 3 and frame 
 ```
 R3_6 = T3_4[0:3,0:3] * T4_5[0:3,0:3] * T5_6[0:3,0:3]
 ```
-![R3_6](R3_6.JPG)
+![R3_6](R3_6.jpg)
 
 --------------
 The next block of code shows how to get the last three joint angles from the values of `R3_6tc` using the equations of `R3_6`.
