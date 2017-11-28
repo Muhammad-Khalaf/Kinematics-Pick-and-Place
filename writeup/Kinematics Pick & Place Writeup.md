@@ -78,15 +78,15 @@ The first step in solving the Inverse Position Kinematics was getting the wrist 
 The figures below show how to derive the equations used for obtaining the first three joint angles.
 
 #### theta1
-![theta1](theta1.JPG)
+![theta1](Kinematics-Pick-and-Place/writeup/theta1.jpg)
 --------------
 
 #### theta2
-![theta2](theta2.JPG)
+![theta2](Kinematics-Pick-and-Place/writeup/theta2.jpg)
 --------------
 
 #### theta3
-![theta3](theta3.JPG)
+![theta3](Kinematics-Pick-and-Place/writeup/theta3.jpg)
 -------------
 
 Deriving the equations for the last three joint angles, or the Inverse Orientation Kinematics, was so much easier to me. The Inverse Kinematics with Kuka KR210 section shows that given the first three joint angles and the end effector pose, we can get the values of the Rotation Matrix between frame 3 and frame 6.
