@@ -78,7 +78,7 @@ The first step in solving the Inverse Position Kinematics was getting the wrist 
 The figures below show how to derive the equations used for obtaining the first three joint angles.
 
 #### theta1
-![theta1](writeup/theta1.jpg)
+![theta1](theta1.jpg)
 --------------
 
 #### theta2
