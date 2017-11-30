@@ -119,7 +119,8 @@ theta6 = atan2(-R3_6tc[1,1], R3_6tc[1,0])
 
 The main parts of the code was covered and illustrated above in the Kinematic Analysis section.
 
-The next figure shows the output of IK_debug.py with the test case 3 which is provided in the script. The overall error seems pretty good as I get zero error with some other test cases.
+The next figures show the output of IK_debug.py with the test case 3 which is provided in the script. The overall error seems pretty good as I get zero error with some test cases.
 ![IK_debug](images/IK_debug_Output.jpg)
+![IK_debug](images/IK_debug_Output2.jpg)
 
-This video ![here](videos/IK_server_test.mp4) shows a full pick and place cycle.
+This video ![here](videos/IK_server_test.mp4) shows a complete pick and place cycle. Note that I have speeded up the video 4 times just to save the time.
