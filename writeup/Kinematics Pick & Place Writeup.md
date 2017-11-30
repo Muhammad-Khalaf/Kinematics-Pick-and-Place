@@ -3,9 +3,9 @@
 ## Kinematic Analysis
 ### 1. Forward kinematics and DH parameters.
 
-Deriving the DH parameters for Kuka KR210 was done as illustrated in the KR210 Forward Kinematics section. However, I adopted another technique to convert the Gribber frame from DH convention to URDF convention. I assumed there are two frames: `Gdh` represents the Gribber in DH convention and `Gurdf` represents the Gribber frame in URDF convention. the figure below shows the robot frames from frame `0` to frame `Gurdf` and the corresponding DH table.
+Deriving the DH parameters for Kuka KR210 was done as illustrated in the [KR210 Forward Kinematics section](https://classroom.udacity.com/nanodegrees/nd209/parts/7b2fd2d7-e181-401e-977a-6158c77bf816/modules/8855de3f-2897-46c3-a805-628b5ecf045b/lessons/91d017b1-4493-4522-ad52-04a74a01094c/concepts/398f60b1-b112-41ec-b8bc-59e95a2cec70). However, I adopted another technique to convert the Gribber frame from DH convention to URDF convention. I assumed there are two frames: `Gdh` represents the Gribber in DH convention and `Gurdf` represents the Gribber frame in URDF convention. the figure below shows the robot frames from frame `0` to frame `Gurdf` and the corresponding DH table.
 
-![KUKA frame & DH table](images\KUKA_DH_table.jpg)
+![KUKA frame & DH table](images/KUKA_DH_table.jpg)
 
 ### 2. Transformation matrices between base frame and gripper frame .
 
@@ -78,18 +78,18 @@ The first step in solving the Inverse Position Kinematics was getting the wrist 
 The figures below show how to derive the equations used for obtaining the first three joint angles.
 
 #### theta1
-![theta1](images\theta1.jpg)
+![theta1](images/theta1.jpg)
 --------------
 
 #### theta2
-![theta2](images\theta2.jpg)
+![theta2](images/theta2.jpg)
 --------------
 
 #### theta3
-![theta3](images\theta3.jpg)
+![theta3](images/theta3.jpg)
 -------------
 
-Deriving the equations for the last three joint angles, or the Inverse Orientation Kinematics, was so much easier to me. The Inverse Kinematics with Kuka KR210 section shows that given the first three joint angles and the end effector pose, we can get the values of the Rotation Matrix between frame 3 and frame 6.
+Deriving the equations for the last three joint angles, or the Inverse Orientation Kinematics, was so much easier to me. The [Inverse Kinematics with Kuka KR210](https://classroom.udacity.com/nanodegrees/nd209/parts/7b2fd2d7-e181-401e-977a-6158c77bf816/modules/8855de3f-2897-46c3-a805-628b5ecf045b/lessons/91d017b1-4493-4522-ad52-04a74a01094c/concepts/a1abb738-84ee-48b1-82d7-ace881b5aec0) section shows that given the first three joint angles and the end effector pose, we can get the values of the Rotation Matrix between frame 3 and frame 6.
 ```
 R0_3tc = T0_3[0:3, 0:3]
 R0_3tc = R0_3tc.evalf(subs={q1: theta1, q2:theta2, q3:theta3})
@@ -99,7 +99,7 @@ Additionally we can also get the same Rotation Matrix between frame 3 and frame 
 ```
 R3_6 = T3_4[0:3,0:3] * T4_5[0:3,0:3] * T5_6[0:3,0:3]
 ```
-![R3_6](images\R3_6.jpg)
+![R3_6](images/R3_6.jpg)
 
 --------------
 The next block of code shows how to get the last three joint angles from the values of `R3_6tc` using the equations of `R3_6`.
@@ -119,7 +119,7 @@ theta6 = atan2(-R3_6tc[1,1], R3_6tc[1,0])
 
 The main parts of the code was covered and illustrated above in the Kinematic Analysis section.
 
-The next figure shows the output of IK_debug.py
-![R3_6](images\IK_debug_Output.jpg)
+The next figure shows the output of IK_debug.py with the test case 3 which is provided in the script. The overall error seems pretty good as I get zero error with some other test cases.
+![IK_debug](images/IK_debug_Output.jpg)
 
-![This video]() shows a full pick and place cycle.
+This video ![here](videos/IK_server_test.mp4) shows a full pick and place cycle.
